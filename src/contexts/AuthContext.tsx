@@ -1,7 +1,6 @@
 'use client';
 
 import React, { createContext, useContext, useEffect, useState } from 'react';
-import { getSession, signOut } from 'next-auth/react';
 import { authAPI } from '@/lib/api';
 
 interface User {
@@ -48,30 +47,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
   useEffect(() => {
     const checkAuth = async () => {
-      // First check NextAuth session (Google Login)
-      try {
-        const session = await getSession();
-        if (session && session.user) {
-          const names = session.user.name?.split(' ') || [];
-          const nextAuthUser = {
-            id: session.user.email || 'google_user',
-            fullName: session.user.name || 'Google User',
-            email: session.user.email || '',
-            mobileNumber: '',
-            profile: {
-              firstName: names[0] || '',
-              lastName: names.slice(1).join(' ') || '',
-              avatar: session.user.image || '',
-            }
-          };
-          setUser(nextAuthUser);
-          setLoading(false);
-          return;
-        }
-      } catch (e) {
-        console.error('Error fetching NextAuth session:', e);
-      }
-
       // Check if user is logged in natively on app start via JWT
       const token = localStorage.getItem('token');
       const savedUser = localStorage.getItem('user');
@@ -152,9 +127,6 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setUser(null);
-    try {
-      await signOut({ redirect: false });
-    } catch(e) {}
     if (typeof window !== 'undefined') {
       window.location.href = '/auth/signin';
     }

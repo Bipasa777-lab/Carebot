@@ -1,1 +1,12 @@
 node_modules
+
+# Local env files (should never be committed)
+.env
+.env.local
+.env.*.local
+
+# Next.js build output
+.next
+
+# macOS
+.DS_Store

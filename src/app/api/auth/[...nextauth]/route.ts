@@ -1,32 +1,16 @@
 import NextAuth from "next-auth";
-import GoogleProvider from "next-auth/providers/google";
 
+// NextAuth configured with no OAuth providers. Local JWT-based auth
+// (the application's own /api/auth/login route) will handle username/password flows.
 export const authOptions = {
-  providers: [
-    GoogleProvider({
-      clientId: process.env.GOOGLE_CLIENT_ID || "",
-      clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
-      // Increase http timeout for the underlying openid-client discovery/request
-      // (default can be short in some environments). Value is in milliseconds.
-      client: {
-        httpOptions: { timeout: 10000 },
-      },
-    }),
-  ],
+  providers: [],
   secret: process.env.NEXTAUTH_SECRET || undefined,
   session: {
     strategy: "jwt",
   },
   callbacks: {
-    // pass minimal profile information to the client
     async jwt({ token, user, account, profile }) {
-      if (user) {
-        token.user = {
-          name: (profile as any)?.name || token.name,
-          email: token.email,
-          picture: token.picture,
-        };
-      }
+      // No OAuth providers; preserve token as-is
       return token;
     },
     async session({ session, token }) {
