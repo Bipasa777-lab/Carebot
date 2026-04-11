@@ -1,10 +1,7 @@
 import NextAuth from "next-auth";
-import { authOptions } from "@/lib/auth";
+import { authOptions as NEXT_AUTH_OPTIONS } from "@/lib/auth";
 
-// This route file intentionally only exports the NextAuth handlers.
-// Auth options live in `src/lib/auth.ts` so they can be re-used across
-// server functions and keep the route handler minimal.
-const handler = NextAuth(authOptions as any);
+// This route file only exports the NextAuth handlers.
+const handler = NextAuth(NEXT_AUTH_OPTIONS as any);
 
-export const GET = handler;
-export const POST = handler;
+export { handler as GET, handler as POST };
