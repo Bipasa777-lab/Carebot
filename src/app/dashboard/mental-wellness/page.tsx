@@ -343,7 +343,7 @@ export default function MentalWellnessPage() {
               </div>
               <div>
                 <h4 className="font-bold text-slate-800 mb-1">Gratitude Practice</h4>
-                <p className="text-slate-600 text-sm">Write down 3 things you're grateful for each day.</p>
+                <p className="text-slate-600 text-sm">Write down 3 things you&apos;re grateful for each day.</p>
               </div>
             </div>
 

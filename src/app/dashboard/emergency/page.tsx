@@ -219,7 +219,7 @@ export default function EmergencyPage() {
                       <div className="bg-purple-50 p-5 rounded-xl border border-purple-100 relative">
                         <FileText className="absolute right-4 top-4 text-purple-200 w-12 h-12 opacity-50" />
                         <p className="text-purple-900 font-medium text-lg italic relative z-10">
-                          "{result.tell_emergency}"
+                          &quot;{result.tell_emergency}&quot;
                         </p>
                       </div>
                     </div>

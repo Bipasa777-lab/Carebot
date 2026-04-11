@@ -138,7 +138,7 @@ export default function FAQPage() {
               Still have questions?
             </h3>
             <p className="text-lg text-[#0b5a4b]/80 mb-8 font-medium">
-              We're here to help! Our support team is ready to assist you.
+              We&apos;re here to help! Our support team is ready to assist you.
             </p>
             <button
               onClick={handleContactClick}

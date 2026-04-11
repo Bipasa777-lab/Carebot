@@ -59,7 +59,7 @@ export default function ContactPage() {
               </span>
             </h1>
             <p className="text-lg text-[#1e1b4b]/80 mb-8 [font-family:'Outfit',Helvetica] max-w-2xl mx-auto leading-relaxed font-medium">
-              Have questions or need assistance? Reach out to us and we'll be happy to help!
+              Have questions or need assistance? Reach out to us and we&apos;ll be happy to help!
             </p>
             <div className="w-24 h-1 bg-gradient-to-r from-[#38bdf8] via-[#1e1b4b] to-[#38bdf8] mx-auto rounded-full shadow-sm"></div>
           </div>
@@ -159,7 +159,7 @@ export default function ContactPage() {
                       Message Sent Successfully!
                     </h3>
                     <p className="text-[#1e1b4b]/70 font-medium">
-                      Thank you for reaching out. We'll get back to you within 24 hours!
+                      Thank you for reaching out. We&apos;ll get back to you within 24 hours!
                     </p>
                   </div>
                 )}

@@ -50,7 +50,7 @@ const LoginPage = () => {
         <div className="flex flex-col justify-center items-center p-10 bg-white/90 backdrop-blur-md">
           <h2 className="text-3xl font-bold text-gray-900 mb-2">Login</h2>
           <p className="text-lg font-medium bg-gradient-to-r from-sky-500 to-sky-700 bg-clip-text text-transparent mb-6 animate-pulse">
-            Let's Get You Started with Carebot
+            Let&apos;s Get You Started with Carebot
           </p>
 
           {error && (
