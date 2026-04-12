@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
 
 // Read env var lazily so missing env does not throw during module import.
-const MONGODB_URI = process.env.MONGODB_URI || '';
+// Strip off quotes and whitespace in case of copy-paste errors from deployment dashboard
+const MONGODB_URI = (process.env.MONGODB_URI || '').trim().replace(/^['"]|['"]$/g, '');
 
 // Global cache to prevent opening too many connections in development mode
 let cached = (global as any).mongoose;
@@ -44,7 +45,7 @@ async function connectToDatabase() {
     // try connecting with the fallback (non-SRV) URI. Useful when local DNS
     // doesn't resolve SRV records or in restricted networks.
     const isUsingSrv = MONGODB_URI.startsWith('mongodb+srv://');
-    const fallback = process.env.MONGODB_URI_FALLBACK || process.env.MONGODB_URI_STD || '';
+    const fallback = (process.env.MONGODB_URI_FALLBACK || process.env.MONGODB_URI_STD || '').trim().replace(/^['"]|['"]$/g, '');
 
     if (isSrvLookupError && isUsingSrv && fallback) {
       console.warn('SRV DNS lookup failed for MongoDB URI; attempting fallback URI from MONGODB_URI_FALLBACK');
