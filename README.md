@@ -33,7 +33,7 @@ A dedicated section designed to help users track emotional states, log mental he
 
 ## 💻 Tech Stack
 
-- **Framework**: [Next.js 15](https://nextjs.org) (App Router)
+- **Framework**: [Next.js 16](https://nextjs.org) (App Router)
 - **Library**: [React 19](https://react.dev)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com) + [Shadcn UI](https://ui.shadcn.com)
 - **Database**: [MongoDB](https://www.mongodb.com) (via [Mongoose](https://mongoosejs.com))
